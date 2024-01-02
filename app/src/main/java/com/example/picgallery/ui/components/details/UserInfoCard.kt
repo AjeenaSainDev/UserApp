@@ -63,7 +63,7 @@ fun UserInfoCard(name: String, company: String, location: String) {
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = "12 mins ago",
+                text = "18mins ago",
                 modifier = Modifier.padding(0.dp, 0.dp, 12.dp, 0.dp),
                 color = colorResource(id = R.color.text),
                 style = MaterialTheme.typography.overline
