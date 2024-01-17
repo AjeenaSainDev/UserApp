@@ -39,6 +39,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.example.picgallery.R
+import com.example.picgallery.ui.components.useralbums.UserAlbums
 import com.example.picgallery.util.Constants.ABOUT_USER
 
 
@@ -81,6 +82,16 @@ fun DetailsView(name:String,email:String,location:String) {
             .background(color = colorResource(id = R.color.background))
     ) {
 
+
+        item {
+            Spacer(modifier = Modifier.height(18.dp))
+            Title(title = "User Albums")
+            Spacer(modifier = Modifier.height(8.dp))
+           /* UserAlbums(albums = albums) { clickedAlbum ->
+                // Handle album click, for example, navigate to a new screen
+                navController.navigate("albumDetails/${clickedAlbum.id}")
+            }*/
+        }
 
 
         // Basic details

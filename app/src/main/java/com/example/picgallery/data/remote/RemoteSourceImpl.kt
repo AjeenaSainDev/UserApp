@@ -2,8 +2,12 @@ package com.example.picgallery.data.remote
 
 import android.util.Log
 import com.example.picgallery.data.AppResponse
+import com.example.picgallery.data.MockAlbumCategories
+import com.example.picgallery.data.MockUserAlbum
 import com.example.picgallery.data.remote.services.ApiServices
 import com.example.picgallery.domain.model.User
+import com.example.picgallery.domain.model.UserAlbums
+import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
@@ -16,6 +20,7 @@ constructor(private val apiService: ApiServices ): RemoteSource{
             if (userResponse.isSuccessful) {
                 userResponse.body()?.let {
                     userList.addAll(it) // Assuming the API response is a List<User>
+
                 }
                 return AppResponse.Success(data = userList)
             } else {
@@ -27,5 +32,15 @@ constructor(private val apiService: ApiServices ): RemoteSource{
             return AppResponse.DataError(errorCode = 400)
         }
     }
+    private suspend fun prepareUserAlbums(
+        userList: MutableList<User>,
+    ) {
+        val albumCategories = MockAlbumCategories.album_list
 
+        userList.forEachIndexed { index, user ->
+            //val updatedUser = user.copy(userAlbums = albumCategories)
+           // userList[index] = updatedUser
+        }
+       Log.e("user",userList.toString())
+    }
 }

@@ -10,7 +10,8 @@ data class User(
     val phone: String,
     val website: String,
     val company: Company,
-    val image :String="https://picsum.photos/200/300"
+    val image:String="https://picsum.photos/200/300"
+
 )
 
 data class Address(
